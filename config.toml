@@ -1,0 +1,17 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "HoBoFoTo"
+theme = "github-style"
+copyright = "© 2019. Theme by <a href=\"https://github.com/MeiK2333/github-style\"><span>github-style</span></a>"
+
+[params]
+  author = "Dr?Thomas"
+  description = "HoBoFoTo"
+  github = "drthomas246"
+  facebook = "hobofoto.net"
+  twitter = "hobofoto_net"
+  email = "drthomas@hobofoto.net"
+  utterances = "example/example.github.io"
+  avatar = "https://avatars2.githubusercontent.com/u/17758220?s=460&u=9899b87eb67a5126efa417263f90ee6b4db9fb81&v=4"
+  url = "https://www.hobofoto.net/"
+  keywords = "blog, google analytics"
