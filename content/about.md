@@ -6,8 +6,13 @@ layout: "about"
 ---
 
 ## Dr?Thomas
-- 山原　喜寛
 - 大阪在住
 - ４月１１日生まれ
 - 和歌山大学　教育学部卒
 - ３児の父
+
+## Copyright
+- 山原　喜寛 (Yamahara Yoshihiro)
+- 2000-2020
+- drthomas@hobofoto.net
+- [プライバシーポリシー]({{<ref "/privacy-policy.html">}})

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <style type="text/css">
 <!--
-.line-bc {
+  .line-bc {
   padding: 20px 10px;
   max-width: 800px;
   margin: 15px auto;
@@ -95,6 +95,27 @@ document.addEventListener("DOMContentLoaded", function() {
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
+-->
+</style>
+{{ end }}
+{{ with .Params.foto }}
+<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.min.css">
+<style type="text/css">
+<!--
+  figure {
+      margin: 1em 40px;
+      width: 310px;
+  }
+  figure img{
+    padding: 5px;
+    border: solid 1px #aaa;
+    width: 300px;
+  }
+  figure figcaption{
+    color: #aaa;
+    text-align: center;
+    font-size: 12px;
+  }
 -->
 </style>
 {{ end }}

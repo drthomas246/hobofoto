@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head.html" . }}
+
+<body class="env-production emoji-size-boost page-responsive page-profile">
+  {{ partial "header" . }}
+  {{ block "content" . }}{{ end }}
+  {{ partial "footer.html" . }}
+
+{{ with .Params.foto }}
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <script src="/js/jquery.fancybox.min.js"></script>
+  <script>
+	  $('[data-fancybox]').fancybox();
+  </script>
+{{ end }}
+</body>
+
+</html>
