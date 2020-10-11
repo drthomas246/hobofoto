@@ -1,8 +1,10 @@
 baseURL = "https://hobofoto.netlify.app/"
-languageCode = "en-us"
+languageCode = "ja-jp"
 title = "HoBoFoTo"
 theme = "github-style"
 copyright = "© 2019. Theme by <a href=\"https://github.com/MeiK2333/github-style\"><span>github-style</span></a>"
+defaultContentLanguage = "ja"
+hasCJKLanguage = true
 
 [params]
   author = "Dr?Thomas"
@@ -12,6 +14,5 @@ copyright = "© 2019. Theme by <a href=\"https://github.com/MeiK2333/github-styl
   twitter = "hobofoto_net"
   email = "drthomas@hobofoto.net"
   utterances = "example/example.github.io"
-  avatar = "https://avatars2.githubusercontent.com/u/17758220?s=460&u=9899b87eb67a5126efa417263f90ee6b4db9fb81&v=4"
+  avatar = "http://hobofoto.netlify.app/17758220.png"
   url = "https://www.hobofoto.net/"
-  keywords = "blog, google analytics"

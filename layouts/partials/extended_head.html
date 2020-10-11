@@ -21,4 +21,80 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   });
 </script>
+<style type="text/css">
+<!--
+.line-bc {
+  padding: 20px 10px;
+  max-width: 800px;
+  margin: 15px auto;
+  background: #7da4cd;
+
+}
+
+/* 吹き出し本体 */
+.balloon1{
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #eee;
+  margin: 10px 20% 20px 50px;          /* 左に余白を設ける */
+}
+/* 画像 - 絶対配置で左上に配置 */
+.balloon1 .icon{
+  position: absolute;
+  left: -70px;
+  top: -20px;
+}
+.balloon1 .name {
+  position: absolute;
+  font-size: 12px;
+  left: 10px;
+  top: -15px;
+}
+/* 三角アイコン */
+.balloon1::before{
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px; 
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #eee;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+/* 吹き出し本体 */
+.balloon2{
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #7d6;
+  margin: 10px 60px 20px 20%;
+}
+/* 画像 - 絶対配置で右上に配置 */
+.balloon2 .icon{
+  position: absolute;
+  right: -80px;
+  top: -20px;
+}
+.balloon2 .name {
+  position: absolute;
+  font-size: 12px;
+  right: 10px;
+  top: -15px;
+}
+/* 三角アイコン */
+.balloon2::before{
+  content: "";
+  position: absolute;
+  top: 3px; 
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #7d6;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+-->
+</style>
 {{ end }}
