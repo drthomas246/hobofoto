@@ -15,4 +15,4 @@ layout: "about"
 - 山原　喜寛 (Yamahara Yoshihiro)
 - 2000-2020
 - drthomas@hobofoto.net
-- [プライバシーポリシー]({{<ref "/privacy-policy.html">}})
+- [プライバシーポリシー]({{<ref "/privacy-policy.md">}})
