@@ -14,5 +14,5 @@ hasCJKLanguage = true
   twitter = "hobofoto_net"
   email = "drthomas@hobofoto.net"
   utterances = "example/example.github.io"
-  avatar = "http://hobofoto.netlify.app/17758220.png"
+  avatar = "/17758220.png"
   url = "https://www.hobofoto.work/"
