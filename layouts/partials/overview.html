@@ -28,6 +28,9 @@
                     {{ $section_count_math}}
                 </span>
             </a>
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "contact/" }}">
+                Contact
+            </a>
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "about/" }}">
                 About
             </a>
@@ -57,7 +60,7 @@
                                     </a>
                                 </div>
                                 <div class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
-                                    {{ .Summary | safeHTML }}
+                                    {{ .Summary | safeHTML }}...
                                 </div>
                                 <div class="f6 text-gray mt-2">
                                     Updated <relative-time datetime="{{ .PublishDate.Format "2006-01-02" }}"

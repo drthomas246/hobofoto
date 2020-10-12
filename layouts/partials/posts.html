@@ -24,15 +24,14 @@
                     {{ $section_count_blog}}
                 </span>
             </a>
-            {{ if eq .Section "math" }}
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ absURL "math/" }}">
-            {{ else }}
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "math/" }}">
-            {{ end }}
                 Math
                 <span class="Counter hide-lg hide-md hide-sm">
                     {{ $section_count_math}}
                 </span>
+            </a>
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "contact/" }}">
+                Contact
             </a>
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "about/" }}">
                 About

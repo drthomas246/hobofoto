@@ -19,8 +19,7 @@
                             <a href="{{ .Site.BaseURL }}{{ .Parent.Section }}">{{ .CurrentSection.Title }}</a>
                             {{ end }}
                             <span class="path-divider">/</span>
-                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px"><a
-                                    href="{{ .Permalink }}">{{ .Title }}</a></strong>
+                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px">{{ .Title }}</strong>
 
                             <div class="d-block text-small text-gray">
                                 Created <time-ago datetime="{{ .Date.Format "2006-01-02" }}" class="no-wrap"
