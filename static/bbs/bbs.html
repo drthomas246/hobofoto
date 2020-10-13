@@ -2,24 +2,24 @@
 <html lang="ja-jp">
 <head>
     <meta charset="utf-8">
-    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://www.hobofoto.net/cgi-bin/cgi/bbs/css/frameworks.css" />
-    <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://www.hobofoto.net/cgi-bin/cgi/bbs/css/github.css" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="./css/frameworks.css" />
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="./css/github.css" />
     
     <link crossorigin="anonymous" media="(prefers-color-scheme: dark)" rel="stylesheet"
-        href="https://www.hobofoto.net/cgi-bin/cgi/bbs/css/dark.css" />
+        href="./css/dark.css" />
     
     <meta name="viewport" content="width=device-width">
  
     <title>掲示板 - HoBoFoTo</title>
 
-    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://www.hobofoto.net/cgi-bin/cgi/bbs/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="./images/favicon.ico">
     <meta name="theme-color" content="#1e2327">
 
 
     
 </head>
 
-<body class="env-production emoji-size-boost page-responsive page-profile">
+<body class="env-production emoji-size-boost page-responsive page-profile" onload="onloads()">
 
 
 <div id="start-of-content" class="show-on-focus"></div>
@@ -37,7 +37,7 @@
                             <div class="avatar mr-1">
                                 
 
-                                <img src="https://www.hobofoto.net/cgi-bin/cgi/bbs/images/17758220.png" width="26" height="26">
+                                <img src="./images/17758220.png" width="26" height="26">
                                 
                             </div>
                             <span class="author"><a href="bbs.html">HoBoFoTo</a></span>
@@ -78,11 +78,14 @@
 
 
 <h2>掲示板</h2>
-
-<p>しばらくお待ち下さい。</p>
+<label>名前：<input type="text" id="name"></label></br>
+<label>メールアドレス：<input type="text" id="mail"></label></br>
+<textarea id="text" cols="40" rows="4" maxlength="20" placeholder="何でもどうぞ"></textarea></br>
+<button type="submit" onclick="sends()">送信</button><span id="bbs-error"></span>
+<div id="scroll" class="bbs-link"></div>
 <div id="bbs-data"></div>
-<script src="https://www.hobofoto.net/cgi-bin/cgi/bbs/js/jquery-3.5.1.min.js"></script>
-<script src="https://www.hobofoto.net/cgi-bin/cgi/bbs/js/bbs.js"></script>
+<div class="bbs-link"></div>
+
 </article>
                         </div>
                     </div>
@@ -97,7 +100,7 @@
         class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
         <ul
             class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
-            <li class="mr-3 mr-lg-0">Copyright © 2000-2020 Dr?Thomas All Rights Reserved.</a></li>
+            <li class="mr-3 mr-lg-0">Copyright © 2000-2020 Dr?Thomas All Rights Reserved.</li>
         </ul>
             <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24"
                 aria-hidden="true">
@@ -113,6 +116,8 @@
         <span class="f6 text-gray-light"></span>
     </div>
 </div>
+<script src="./js/jquery-3.5.1.min.js"></script>
+<script src="./js/bbs.js"></script>
 </body>
 
 </html>
