@@ -1,12 +1,8 @@
 <?php
-// Ajax以外からのアクセスを遮断
-$request = isset($_SERVER['HTTP_X_REQUESTED_WITH'])
-     ? strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) : '';
-if($request !== 'xmlhttprequest') exit;
  
 $parameter = filter_input(INPUT_POST, 'parameter');
 if ($parameter == 'get'){
-	$dat = file('bbs.dat',FILE_IGNORE_NEW_LINES);
+	$dat = file('../bbs.dat',FILE_IGNORE_NEW_LINES);
 	$array = array();
 	foreach ($dat as $value){
 		list($name, $mail, $days, $bbs, $extra) = preg_split("[,]",$value, 5);
@@ -25,9 +21,9 @@ if ($parameter == 'send'){
 	$week_name = array("日", "月", "火", "水", "木", "金", "土");
 
 	$line = $name.",".$mail.",".date("Y年m月d日")."（$week_name[$w]）".date("H:i:s").",".str_replace(array("\r", "\n"), '', nl2br($text));
-	$dat = file('bbs.dat',FILE_IGNORE_NEW_LINES);
+	$dat = file('../bbs.dat',FILE_IGNORE_NEW_LINES);
 	array_unshift($dat,$line);
-	file_put_contents('bbs.dat',implode("\n", $dat));
+	file_put_contents('../bbs.dat',implode("\n", $dat));
 	$array = array();
 	foreach ($dat as $value){
 		list($name, $mail, $days, $bbs, $extra) = preg_split("[,]",$value, 5);

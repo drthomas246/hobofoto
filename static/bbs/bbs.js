@@ -19,9 +19,8 @@ function sends(){
         var param = { "parameter": "send" ,"name": name ,"mail": mail ,"text": text };
         $.ajax({
             type: "POST",
-            url: "get.php",
+            url: "https://www.hobofoto.net/cgi-bin/cgi/bbs/php/bbs.php",
             data: param,
-            crossDomain: false,
             dataType : "json",
             scriptCharset: 'utf-8'
         }).done(function(data){
@@ -37,9 +36,8 @@ function onloads(page = 1, buttonClick = false){
     var param = { "parameter": "get" };
     $.ajax({
         type: "POST",
-        url: "get.php",
+        url: "https://www.hobofoto.net/cgi-bin/cgi/bbs/php/bbs.php",
         data: param,
-        crossDomain: false,
         dataType : "json",
         scriptCharset: 'utf-8'
     }).done(function(data){
@@ -110,9 +108,14 @@ function prints(page, data, buttonClick){
             array.push(dataArray[i]);
         }
     }
-    $("#bbs-data").html(array.join(''));
+    var html = array.join('');
+    countCharcter(html);
+    $("#bbs-data").html(html);
     if (buttonClick){
         var scroll = $("#scroll").offset();
         $("body, html").animate({ scrollTop: scroll.top }, 200, "linear");
     }
+}
+function countCharcter(Charcter){
+    $("#count").html(Charcter.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').length + 14);
 }
