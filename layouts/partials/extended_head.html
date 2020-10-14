@@ -104,3 +104,41 @@ To add an extended head section, please create
 -->
 </style>
 {{ end }}
+{{ if eq .File.LogicalName "bbs.md"}}
+<style type="text/css">
+  .bbs-link button{
+    margin: 10px 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .bbs-link button.link{
+    color: #0366d6;
+    text-decoration: none;
+  }
+  .bbs-link button.num-normal{
+    font-weight: bold;
+    cursor: default;
+  }
+  .bbs-link button.cursor-normal{
+    cursor: default;
+  }
+  .bbs-link button.link:hover{
+    text-decoration: underline;
+  }
+  .bbs-link button.number{
+    width: 25px;
+  }
+  article.bbs{
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding: 5px; 
+  }
+</style>
+{{ end }}

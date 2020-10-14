@@ -56,47 +56,47 @@ function prints(page, data, buttonClick){
     var back = page + 3;
     $("#bbs-error").html("");
     if (page != 1){
-        var value = "<button type='button' onclick='onloads(" + (page-1) + ", true)'>前へ</button>";
+        var value = "<button type='button' class='nav link' onclick='onloads(" + (page-1) + ", true)'>前へ</button>";
         array.push(value);
 
     }else{
-        var value = "<button type='button' disabled>前へ</button>";
+        var value = "<button type='button' class='nav cursor-normal' disabled>前へ</button>";
         array.push(value);
     }
     if (page <= 5){
         for (var i = 1; i <= 10; i++) {
             if (page == i){
-                var value = i;
+                var value = "<button type='button' class='number num-normal'>" + i + "</button>";
             }else{
-                var value = "<button type='button' onclick='onloads(" + i + ", true)'>" + i + "</button>";
+                var value = "<button type='button' class='number link' onclick='onloads(" + i + ", true)'>" + i + "</button>";
             }
             array.push(value);
         }
     }else if(page >=(pageMax-4)){
         for (var i = (pageMax-9); i <= pageMax; i++) {
             if (page == i){
-                var value = i;
+                var value = "<button type='button' class='number num-normal'>" + i + "</button>";
             }else{
-                var value = "<button type='button' onclick='onloads(" + i + ", true)'>" + i + "</button>";
+                var value = "<button type='button' class='number link' onclick='onloads(" + i + ", true)'>" + i + "</button>";
             }
             array.push(value);
         }
     }else{
         for (var i = (page-5); i <= (page+4); i++) {
             if (page == i){
-                var value = i;
+                var value = "<button type='button' class='number num-normal'>" + i + "</button>";
             }else{
-                var value = "<button type='button' onclick='onloads(" + i + ", true)'>" + i + "</button>";
+                var value = "<button type='button' class='number link' onclick='onloads(" + i + ", true)'>" + i + "</button>";
             }
             array.push(value);
         }
     }
     if (page != pageMax){
-        var value = "<button type='button' onclick='onloads(" + (page+1) + ", true)'>次へ</button>";
+        var value = "<button type='button' class='nav link' onclick='onloads(" + (page+1) + ", true)'>次へ</button>";
         array.push(value);
 
     }else{
-        var value = "<button type='button' disabled>次へ</button>";
+        var value = "<button type='button' class='nav cursor-normal' disabled>次へ</button>";
         array.push(value);
     }
     $(".bbs-link").html(array.join(' '));
