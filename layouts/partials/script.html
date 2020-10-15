@@ -31,11 +31,9 @@ document.addEventListener("DOMContentLoaded", function() {
   $('[data-fancybox]').fancybox();
 </script>
 {{ end }}
-{{ if eq .Section "contact"}}
+{{ if eq .File.LogicalName "bbs.md"}}
 <script src="{{ "jquery/jquery-3.5.1.min.js" | absURL }}"></script>
 <script src="{{ "bbs/bbs.js" | absURL }}"></script>
-{{ end }}
-{{ if eq .File.LogicalName "bbs.md"}}
 <script>
   window.onload = onloads();
 </script>

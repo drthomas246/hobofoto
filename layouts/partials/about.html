@@ -4,7 +4,6 @@
 {{ $mainSections_math := slice "math" }}
 {{ $section_math := where .Site.RegularPages "Section" "in" $mainSections_math }}
 {{ $section_count_math := len $section_math }}
-{{ $n_posts := $.Param "recent_posts_number" | default 6 }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
     <div class="UnderlineNav width-full user-profile-nav top-0 is-placeholder"
         style="visibility: hidden; display: none; height: 56px;"></div>
@@ -20,16 +19,42 @@
                     {{ $section_count_blog}}
                 </span>
             </a>
+            {{ if eq .Section "math"}}
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ absURL "math/" }}">
+            {{ else }}
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "math/" }}">
+            {{ end }}
                 Math
                 <span class="Counter hide-lg hide-md hide-sm">
                     {{ $section_count_math}}
                 </span>
             </a>
+            {{ if eq .LogicalName "novel.md"}}
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ absURL "novel/" }}">
+            {{ else }}
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "novel/" }}">
+            {{ end }}
+                Novel
+            </a>
+            {{ if eq .LogicalName "software.md"}}
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ absURL "software/" }}">
+            {{ else }}
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "software/" }}">
+            {{ end }}
+                Software
+            </a>
+            {{ if eq .Section "contact"}}
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ absURL "contact/" }}">
+            {{ else }}
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "contact/" }}">
+            {{ end }}
                 Contact
             </a>
+            {{ if eq .Section "about"}}
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ absURL "about/" }}">
+            {{ else }}
+            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "about/" }}">
+            {{ end }}
                 About
             </a>
         </nav>

@@ -1,22 +1,11 @@
 function sends(){
-    var errorText = "";
-    var error = false;
-    if (!$("#name").val()){
-        errorText = "名前を入れてください。";
-        error = true;
-    }
-    if (!$("#text").val()){
-        errorText = errorText + "本文を入れてください。";
-        error = true;
-    }
-    if (error){
-        $("#bbs-error").html(errorText);
-        return;
-    }else{
-        var name = $("#name").val();
-        var mail = $("#mail").val();
-        var text = $("#text").val();
-        var param = { "parameter": "send" ,"name": name ,"mail": mail ,"text": text };
+    if ($('#bbs')[0].reportValidity()){
+        // var name = $("#name").val();
+        // var mail = $("#mail").val();
+        // var text = $("#text").val();
+        // var param = { "parameter": "send" ,"name": name ,"mail": mail ,"text": text };
+        var param = new FormData($('#bbs')[0]);
+        alert(param);
         $.ajax({
             type: "POST",
             url: "https://www.hobofoto.net/cgi-bin/cgi/bbs/php/bbs.php",

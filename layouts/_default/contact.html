@@ -1,11 +1,3 @@
 {{ define "content" }}
-<div class="application-main " data-commit-hovercards-enabled>
-    <main>
-        <div class="container-xl clearfix px-3 mt-4">
-
-            {{ partial "user-profile.html" . }}
-
-            {{ partial "contact.html" .}}
-    </main>
-</div>
+{{ partial "contact.html" .}}
 {{end }}

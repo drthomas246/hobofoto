@@ -14,7 +14,7 @@
                                 {{ end }}
                             </a>
                             <span class="author"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span>
-                            {{ if ne .Parent.Section ""}}
+                            {{ if ne .Section ""}}
                             <span class="path-divider">/</span>
                             <a href="{{ .Site.BaseURL }}{{ .Parent.Section }}">{{ .CurrentSection.Title }}</a>
                             {{ end }}

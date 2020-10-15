@@ -1,51 +1,112 @@
-{{ $mainSections_blog := slice "blog" }}
-{{ $section_blog := where .Site.RegularPages "Section" "in" $mainSections_blog }}
-{{ $section_count_blog := len $section_blog }}
-{{ $mainSections_math := slice "math" }}
-{{ $section_math := where .Site.RegularPages "Section" "in" $mainSections_math }}
-{{ $section_count_math := len $section_math }}
-{{ $n_posts := $.Param "recent_posts_number" | default 6 }}
-<div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
-    <div class="UnderlineNav width-full user-profile-nav top-0 is-placeholder"
-        style="visibility: hidden; display: none; height: 56px;"></div>
-    <div class="UnderlineNav width-full user-profile-nav js-sticky top-0"
-        style="position: static; top: 0px; left: 330.5px; width: 911.5px;">
-        <nav class="UnderlineNav-body" aria-label="User profile">
-            <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ .Site.BaseURL }}">
-                Overview
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "blog/" }}">
-                Blogs
-                <span class="Counter hide-lg hide-md hide-sm">
-                    {{ $section_count_blog}}
-                </span>
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "math/" }}">
-                Math
-                <span class="Counter hide-lg hide-md hide-sm">
-                    {{ $section_count_math}}
-                </span>
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ absURL "contact/" }}">
-                Contact
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "about/" }}">
-                About
-            </a>
-        </nav>
-    </div>
+<div class="application-main " data-commit-hovercards-enabled="">
+    <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
+        <main>
+            <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav pt-0 pt-lg-4 ">
+                <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
+                    <div class="mb-3 d-flex">
+                        <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
+                            <a class="avatar mr-1" href="{{ absURL "about/" }}">
+                                {{ with $.Site.Params.avatar }}
 
-    <div class="position-relative">
-        <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
-            <div class="repository-content ">
-                <div class="Box mt-3 position-relative">
-                    <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
-                        <article class="markdown-body entry-content p-3 p-md-6" itemprop="text">
-                            {{- .Content -}}
-                        </article>
+                                <img src="{{  $.Site.Params.avatar  }}" width="26" height="26">
+                                {{ else }}
+                                <img src="{{ "images/avatar.png" | absURL }}" width="26" height="26">
+                                {{ end }}
+                            </a>
+                            <span class="author"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span>
+                            {{ if ne .Parent.Section ""}}
+                            <span class="path-divider">/</span>
+                            <a href="{{ .Site.BaseURL }}{{ .Parent.Section }}">{{ .CurrentSection.Title }}</a>
+                            {{ end }}
+                            <span class="path-divider">/</span>
+                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px">{{ .Title }}</strong>
+
+                            <div class="d-block text-small text-gray">
+                                Created <time-ago datetime="{{ .Date.Format "2006-01-02" }}" class="no-wrap"
+                                    title="Created at {{ .PublishDate.Format "2006/01/02" }}">
+                                    {{ .PublishDate.Format "2006-01-02" }}</time-ago>
+                                <span class="file-info-divider"></span>
+                                Modified <time-ago datetime="{{ .Lastmod.Format "2006-01-02" }}" class="no-wrap"
+                                    title="Modified  at {{ .Lastmod.Format "2006/01/02" }}">
+                                    {{ .Lastmod.Format "2006-01-02" }}</time-ago>
+                            </div>
+                        </h1>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
+                <div class="repository-content ">
+                    <div class="Box mt-3 position-relative">
+                        <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
+                            <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                                {{ if eq .File.LogicalName "bbs.md" }}<span id="count"></span>{{ else }}31{{ end }} Words
+                                <!-- <span class="file-info-divider"></span>
+                                {{ .ReadingTime }} min -->
+                            </div>
+                        </div>
+
+                        <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
+                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text">
+                                {{- .Content -}}
+                                {{ if eq .File.LogicalName "bbs.md" }}
+                                <form id="bbs">
+                                    <p><label>名前：<input type="text" id="name" required></label></p>
+                                    <p><label>メールアドレス：<input type="mail" id="mail" pattern="[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+" title="***@****.**"></label></p>
+                                    <p><textarea id="text" cols="40" rows="4" placeholder="何でもどうぞ" required></textarea></p>
+                                    <button type="button" onclick="sends()">送信</button><span id="bbs-error"></span>
+                                </form>
+                                <div id="scroll" class="bbs-link"></div>
+                                <div id="bbs-data"></div>
+                                <div class="bbs-link"></div>
+                                {{ end }}
+                                {{ if eq .File.LogicalName "form.md"}}
+                                <form name="contact" method="POST" data-netlify="true" action="/contact/success/">
+                                    <p><label>お名前: <input type="text" name="name" required /></label></p>
+                                    <p><label>Emailアドレス: <input type="email" name="email" pattern="[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+" title="***@****.**" required/></label></p>
+                                    <p><label>なにについて: <select name="what">
+                                        <option value="nikkahyo">ブログ</option>
+                                        <option value="math">中学数学</option>
+                                        <option value="novel">小説</option>
+                                        <option value="softwere">ソフトウエア</option>
+                                    </select></label></p>
+                                    <p><label>質問内容: <textarea name="message" cols="40" rows="4" required></textarea></label></p>
+                                    <div data-netlify-recaptcha="true"></div>
+                                    <p><button id="contactButton" type="submit">送信</button></p>
+                                </form>
+                                {{ end }}
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 </div>
+{{ if .Site.Params.utterances }}
+<div class="utterances"></div>
+<!-- <script src="https://utteranc.es/client.js"
+        repo="{{ .Site.Params.utterances }}"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script> -->
+<script>
+    var systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    var systemTheme = systemThemeMediaQuery.matches ? 'dark' : 'light';
+    var utterancesTheme = systemTheme === 'dark' ? 'github-dark' : 'github-light';
+    var utterancesScript = document.createElement('script');
+    utterancesScript.src = 'https://utteranc.es/client.js';
+    utterancesScript.setAttribute('repo', '{{ .Site.Params.utterances }}');
+    utterancesScript.setAttribute('issue-term', 'title');
+    utterancesScript.setAttribute('theme', utterancesTheme);
+    utterancesScript.setAttribute('crossorigin', 'anonymous');
+    utterancesScript.setAttribute('async', '');
+    document.querySelector('.utterances').appendChild(utterancesScript);
+</script>
+<noscript>Please enable JavaScript to view the comments</noscript>
+{{ end }}
