@@ -7,4 +7,4 @@ foto: true
 
 地元で発見。京都の風景みたい。
 
-{{<fancybox text="竹林" src="/blog/take_.jpg" href="/blog/take.jpg">}}
+{{<fancybox text="竹林" src="take.jpg">}}

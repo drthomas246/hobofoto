@@ -1,5 +1,10 @@
+{{ $src := .Get "src" }}
+{{ $imageRes := .Page.Resources.GetMatch $src }}
+{{ $imageRes := $imageRes.Fill "310x232" }}
+{{ $imageUrl := $imageRes.RelPermalink }}
+
 <figure>
-<a href="{{ .Get "href" }}" data-fancybox="group" data-caption="{{ .Get "text" }}">
-<img src="{{ .Get "src" }}" alt="{{ .Get "text" }}" /></a>
+<a href="{{ .Get "src" }}" data-fancybox="group" data-caption="{{ .Get "text" }}">
+<img src="{{ $imageUrl }}" alt="{{ .Get "text" }}" /></a>
 <figcaption>{{ .Get "text" }}</figcaption>
 </figure>

@@ -1,8 +1,8 @@
-{{ $mainSections_blog := slice "blog" }}
-{{ $section_blog := where .Site.RegularPages "Section" "in" $mainSections_blog }}
+{{ $blogSections := slice "blog" }}
+{{ $section_blog := where .Site.RegularPages "Section" "in" $blogSections }}
 {{ $section_count_blog := len $section_blog }}
-{{ $mainSections_math := slice "math" }}
-{{ $section_math := where .Site.RegularPages "Section" "in" $mainSections_math }}
+{{ $mathSections := slice "math" }}
+{{ $section_math := where .Site.RegularPages "Section" "in" $mathSections }}
 {{ $section_count_math := len $section_math }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
     <div class="UnderlineNav width-full user-profile-nav top-0 is-placeholder"
@@ -36,7 +36,7 @@
             {{ end }}
                 Novel
             </a>
-            {{ if eq .LogicalName "software.md"}}
+            {{ if eq .Section "software"}}
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="{{ absURL "software/" }}">
             {{ else }}
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ absURL "software/" }}">

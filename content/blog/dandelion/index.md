@@ -7,4 +7,4 @@ foto: true
 
 今にも飛び立ちそう。
 
-{{<fancybox text="タンポポ綿毛" src="/blog/tanpopo_.jpg" href="/blog/tanpopo.jpg">}}
+{{<fancybox text="タンポポ綿毛" src="tanpopo.jpg">}}

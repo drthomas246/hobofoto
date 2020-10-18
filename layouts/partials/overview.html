@@ -1,12 +1,11 @@
 {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
 {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
 {{ $section_count := len $section }}
-
-{{ $mainSections_blog := slice "blog" }}
-{{ $section_blog := where .Site.RegularPages "Section" "in" $mainSections_blog }}
+{{ $blogSections := slice "blog" }}
+{{ $section_blog := where .Site.RegularPages "Section" "in" $blogSections }}
 {{ $section_count_blog := len $section_blog }}
-{{ $mainSections_math := slice "math" }}
-{{ $section_math := where .Site.RegularPages "Section" "in" $mainSections_math }}
+{{ $mathSections := slice "math" }}
+{{ $section_math := where .Site.RegularPages "Section" "in" $mathSections }}
 {{ $section_count_math := len $section_math }}
 
 {{ $n_posts := $.Param "recent_posts_number" | default 6 }}

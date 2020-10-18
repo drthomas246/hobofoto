@@ -11,7 +11,8 @@ foto: true
 {{<balloon-left>}}今回は引き算について考えていこうと思う。{{</balloon-left>}}
 {{<balloon-right>}}足し算の時はそんなに難しくなかったので今回も楽勝ですよ。{{</balloon-right>}}
 {{<balloon-left>}}それはどうかな。引き算は少し手こずるぞ。{{</balloon-left>}}
-{{<balloon-right>}}えっ！それじゃあ、しっかりしないといけないですね。{{</balloon-right>}}
+{{<balloon-right>}}えっ！  
+それじゃあ、しっかりしないといけないですね。{{</balloon-right>}}
 {{<balloon-left>}}理屈がわかれば簡単なので理解を深めれば大丈夫じゃ。{{</balloon-left>}}
 
 

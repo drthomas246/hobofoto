@@ -8,7 +8,8 @@ foto: true
 
 {{<balloon-left>}}今回は足し算についてやってみようと思う。{{</balloon-left>}}
 {{<balloon-right>}}小学校でも足し算はやりましたよね。{{</balloon-right>}}
-{{<balloon-left>}}そうじゃ。でも負の数が入ってきたのでその辺の部分を考えないといけない。{{</balloon-left>}}
+{{<balloon-left>}}そうじゃ。  
+でも負の数が入ってきたのでその辺の部分を考えないといけない。{{</balloon-left>}}
 {{<balloon-right>}}何か変わってるんでしょうかねぇ？{{</balloon-right>}}
 
 ## 加法

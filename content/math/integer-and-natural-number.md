@@ -7,7 +7,8 @@ math: true
 
 {{<balloon-left>}}前回は$0$より下の数、負の数について学んだな。{{</balloon-left>}}
 {{<balloon-right>}}$-1,-2$という数ですね。{{</balloon-right>}}
-{{<balloon-left>}}そうじゃ。それでは、今まで習ってきた数と、どう関連があるのか見ていこうと思う。{{</balloon-left>}}
+{{<balloon-left>}}そうじゃ。  
+それでは、今まで習ってきた数と、どう関連があるのか見ていこうと思う。{{</balloon-left>}}
 {{<balloon-right>}}新しい数が今までの数にどう組み込まれているのか楽しみです。{{</balloon-right>}}
 
 ## 整数
