@@ -79,7 +79,7 @@
                 </ol>
             </div>
         </div>
-        {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
+        {{ $mainSections := slice "blog" "math" }}
         {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
         <div id="contributions" data='[{{ range $index, $elem := $section }}
 {
