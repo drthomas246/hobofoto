@@ -5,7 +5,7 @@ draft: false
 layout: "about"
 ---
 
-## Dr?Thomas
+## About
 - 大阪在住
 - ４月１１日生まれ
 - 和歌山大学　教育学部卒
@@ -14,5 +14,5 @@ layout: "about"
 ## Copyright
 - 山原　喜寛 (Yamahara Yoshihiro)
 - 2000-2020
-- drthomas@hobofoto.net
+- yoshihiro@yamahara.email
 - [プライバシーポリシー]({{<ref "/privacy-policy.md">}})

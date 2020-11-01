@@ -10,3 +10,4 @@ layout: "about"
 - [Novel Editor]({{<ref "software/novel-editor.md">}})
 	- Python で作った、「小説家になろう」の投稿用エディタ
 - [日課表作成システム]({{<ref "software/nikkahyo.md">}})
+	- 日々の授業態度を簡単に付けて学期末に集計できるソフト
