@@ -1,4 +1,4 @@
-{{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
+{{ $mainSections := slice "blog" "math" }}
 {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
 {{ $section_count := len $section }}
 {{ $blogSections := slice "blog" }}
@@ -45,7 +45,7 @@
         <div class="mt-4">
             <div class="js-pinned-items-reorder-container">
                 <h2 class="f4 mb-2 text-normal">
-                    Pinned
+                    New arrive
                 </h2>
 
                 <ol class="d-flex flex-wrap list-style-none gutter-condensed mb-4 js-pinned-items-reorder-list">
