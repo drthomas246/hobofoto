@@ -146,6 +146,10 @@ To add an extended head section, please create
 </style>
 {{ end }}
 <style type="text/css">
+  img#avatar{
+    border-radius: 50% !important;
+    border: 1px solid #d1d5da;
+  }
   h2#search{
     padding: 16px 0;
     border-bottom: 1px solid #e1e4e8;
@@ -172,8 +176,11 @@ To add an extended head section, please create
     outline: none;
     width: 300px;
   }
+  input#searchbox:focus::placeholder {
+    color: #000;
+  }
   input#searchbox{
-    transition:ease-out 0.5s;
+    transition:ease-out 0.2s;
   }
   @media(max-width:768px) {
       input#searchbox{
