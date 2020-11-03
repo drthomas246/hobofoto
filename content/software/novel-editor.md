@@ -8,7 +8,8 @@ foto: false
 
 ## Novel Editor
 
-ダウンロードは{{<exlink href="https://www.vector.co.jp/soft/dl/winnt/writing/se520411.html" text="こちら">}}から
+ダウンロードは{{<exlink href="https://www.vector.co.jp/soft/dl/winnt/writing/se520411.html" text="Vector">}}から  
+プログラムソースは{{<exlink href="https://github.com/drthomas246/novel_editor/" text="GitHub">}}から
 
 - Python で作った、「{{<exlink href="https://syosetu.com/" text="小説家になろう">}}」の投稿用エディタです。
 - 「キャラクター」、「職種」、「場所」、「イベント」、「イメージ」、「小説」をわけて管理することで小説を少しでも楽にかけるようにしてあります。
@@ -90,8 +91,8 @@ ver0.2.0b以降を初めて使う場合は、申し訳ありませんが、Relea
 
 ### Copyright
 - ファイル名：novel_editor.py,novel_editor.exe,change.py,change.exe
-- 作者：山原　喜寛 (Yamahara Yoshihiro)
-- 著作年：2019-2020
+- 作者：山原 喜寛 (Yamahara Yoshihiro)
+- 著作年：2019-{{<this_year>}}
 - HP：https://www.hobofoto.net/
 - E-mail：yoshihiro@yamahara.email
 - ライセンス：{{<exlink href="https://github.com/drthomas246/novel_editor/blob/master/LICENSE.md" text="GNU GPL3 License">}}[]()

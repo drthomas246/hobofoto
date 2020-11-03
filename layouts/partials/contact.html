@@ -5,7 +5,7 @@
                 <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
                     <div class="mb-3 d-flex">
                         <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
-                            <a class="avatar mr-1" href="{{ absURL "about/" }}">
+                            <a class="avatar mr-1" href="{{ absURL "/" }}">
                                 {{ with $.Site.Params.avatar }}
 
                                 <img src="{{  $.Site.Params.avatar  }}" width="26" height="26">
@@ -54,19 +54,19 @@
                                 {{- .Content -}}
                                 {{ if eq .File.LogicalName "bbs.md" }}
                                 <form id="bbs">
-                                    <p><label>名前：<input type="text" id="name" required></label></p>
+                                    <p><label>ハンドルネーム：<input type="text" id="name" required></label></p>
                                     <p><label>メールアドレス：<input type="mail" id="mail" pattern="[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+" title="***@****.**"></label></p>
                                     <p><textarea id="text" cols="40" rows="4" placeholder="何でもどうぞ" required></textarea></p>
-                                    <button type="button" onclick="sends()">送信</button><span id="bbs-error"></span>
+                                    <p class="button"><button class="btn btn-outline BtnGroup-item" type="button" onclick="sends()">送信</button></p>
                                 </form>
-                                <div id="scroll" class="bbs-link"></div>
+                                <p><div id="scroll" class="bbs-link"></div></p>
                                 <div id="bbs-data"></div>
                                 <div class="bbs-link"></div>
                                 {{ end }}
                                 {{ if eq .File.LogicalName "form.md"}}
                                 <form name="contact" method="POST" data-netlify="true" action="/contact/success/">
                                     <p><label>お名前: <input type="text" name="name" required /></label></p>
-                                    <p><label>Emailアドレス: <input type="email" name="email" pattern="[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+" title="***@****.**" required/></label></p>
+                                    <p><label>メールアドレス: <input type="email" name="email" pattern="[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+" title="***@****.**" required/></label></p>
                                     <p><label>なにについて: <select name="what">
                                         <option value="nikkahyo">ブログ</option>
                                         <option value="math">中学数学</option>
@@ -75,7 +75,7 @@
                                     </select></label></p>
                                     <p><label>質問内容: <textarea name="message" cols="40" rows="4" required></textarea></label></p>
                                     <div data-netlify-recaptcha="true"></div>
-                                    <p><button id="contactButton" type="submit">送信</button></p>
+                                    <p><button id="contactButton" class="btn btn-outline BtnGroup-item" type="submit">送信</button></p>
                                 </form>
                                 {{ end }}
                             </article>

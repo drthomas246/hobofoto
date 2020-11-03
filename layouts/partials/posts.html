@@ -48,7 +48,11 @@
     <div class="position-relative">
         <div id="user-repositories-list">
             <ul data-filterable-for="your-repos-filter" data-filterable-type="substring">
-                {{ range .Paginator.Pages }}
+                {{ $paginaton := 10 }}
+                {{ if .Site.Params.paginaton }}
+                    {{ $paginaton = .Site.Params.paginaton }}
+                {{ end }}
+                {{ range (.Paginator $paginaton).Pages }}
                 <li class="col-12 d-flex width-full py-4 border-bottom public fork">
                     <div class="col-12 col-lg-12 d-inline-block">
                         <div class="d-inline-block mb-1">

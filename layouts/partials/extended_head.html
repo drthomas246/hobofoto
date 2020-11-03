@@ -140,5 +140,44 @@ To add an extended head section, please create
     margin-bottom: 10px;
     padding: 5px; 
   }
+  .button{
+    height: 20px;
+  }
 </style>
 {{ end }}
+<style type="text/css">
+  h2#search{
+    padding: 16px 0;
+    border-bottom: 1px solid #e1e4e8;
+  }
+  #searchform{
+  }
+  input#searchbox{
+    color: #fff;
+    background-color: #24292e;
+    border-radius: 5px;
+    border: 1px solid #444d56;
+    padding: 2px;
+    width: 150px;
+  }
+  input#searchbox::placeholder {
+    color: #fff;
+  }
+  input#searchbox::-ms-input-placeholder {
+    color: #fff;
+  }
+  input#searchbox:focus{
+    color: #000;
+    background-color: #fff;
+    outline: none;
+    width: 300px;
+  }
+  input#searchbox{
+    transition:ease-out 0.5s;
+  }
+  @media(max-width:768px) {
+      input#searchbox{
+          display: none;
+      }
+  }
+</style>

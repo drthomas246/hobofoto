@@ -2,6 +2,7 @@
 title: "小説"
 date: 2020-10-15T16:08:58+09:00
 draft: false
+search: true
 layout: "about"
 ---
 

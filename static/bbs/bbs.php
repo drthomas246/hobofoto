@@ -23,14 +23,10 @@ function print_html($dat){
 	$array = array();
 	foreach ($dat as $value){
 		list($name, $mail, $days, $bbs, $extra) = preg_split("[,]",$value, 5);
-		if ($mail != ""){
-			$line = "<article class='bbs'><p>名前：<a href='mailto:".$mail."'>".$name."</a>　".$days."</p>".str_replace(array("\r", "\n"), '', $bbs)."</article>";
-		}else{
-			$line = "<article class='bbs'><p>名前：".$name."　".$days."</p>".str_replace(array("\r", "\n"), '', $bbs)."</article>";
-		}
+		$line = "<article class='bbs'><p>ハンドルネーム：".$name."　".$days."</p>".str_replace(array("\r", "\n"), '', $bbs)."</article>";
 		array_push($array,$line);
 	}
 	$html = implode("\n", $array);
 	header('Content-type: application/json; charset=utf-8');
-	echo json_encode(['data' => $html]);
+	echo json_encode(['bbs' => $html]);
 }

@@ -7,11 +7,13 @@
                         <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
                             <a class="avatar mr-1" href="{{ absURL "/" }}">
                                 {{ with $.Site.Params.avatar }}
-
                                 <img src="{{  $.Site.Params.avatar  }}" width="26" height="26">
                                 {{ else }}
                                 <img src="{{ "images/avatar.png" | absURL }}" width="26" height="26">
                                 {{ end }}
+                            </a>
+                            <a href="{{ absURL "/" }}">
+                            Home
                             </a>
                             <span class="author"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span>
                             {{ if ne .Section ""}}

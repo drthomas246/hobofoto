@@ -2,7 +2,7 @@ baseURL = "https://www.hobofoto.work/"
 languageCode = "ja-jp"
 title = "HoBoFoTo"
 theme = "github-style"
-copyright = "© 2000 Dr?Thomas All Rights Reserved."
+copyright = "&copy; 2000 Dr?Thomas"
 defaultContentLanguage = "ja"
 hasCJKLanguage = true
 
@@ -18,3 +18,4 @@ hasCJKLanguage = true
   email = "yoshihiro@yamahara.email"
   avatar = "/17758220.png"
   url = "http://hobofoto.s205.xrea.com/"
+  paginaton = 5

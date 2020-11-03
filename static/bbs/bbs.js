@@ -1,9 +1,5 @@
 function sends(){
     if ($('#bbs')[0].reportValidity()){
-        // var name = $("#name").val();
-        // var mail = $("#mail").val();
-        // var text = $("#text").val();
-        // var param = { "parameter": "send" ,"name": name ,"mail": mail ,"text": text };
         var param = new FormData($('#bbs')[0]);
         alert(param);
         $.ajax({
@@ -12,9 +8,9 @@ function sends(){
             data: param,
             dataType : "json",
             scriptCharset: 'utf-8'
-        }).done(function(data){
+        }).done(function(bbs){
             $("#text").val('');
-            prints(1, data.data, false);
+            prints(1, bbs.bbs, false);
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
             alert('正しい結果を得られませんでした。');
         });
@@ -29,21 +25,20 @@ function onloads(page = 1, buttonClick = false){
         data: param,
         dataType : "json",
         scriptCharset: 'utf-8'
-    }).done(function(data){
-        prints(page, data.data, buttonClick);
+    }).done(function(bbs){
+        prints(page, bbs.bbs, buttonClick);
     }).fail(function(XMLHttpRequest, textStatus, errorThrown){
         alert('正しい結果を得られませんでした。');
     });
 }
 
-function prints(page, data, buttonClick){
-    var dataArray = data.split('\n');
+function prints(page, bbs, buttonClick){
+    var dataArray = bbs.split('\n');
     var array = [];
     var kugiri = 10;
     var pageMax = Math.ceil(dataArray.length / kugiri);
     var front = page - 2;
     var back = page + 3;
-    $("#bbs-error").html("");
     if (page != 1){
         var value = "<button type='button' class='nav link' onclick='onloads(" + (page-1) + ", true)'>前へ</button>";
         array.push(value);
