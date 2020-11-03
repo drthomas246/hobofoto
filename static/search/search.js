@@ -53,7 +53,7 @@ function createEntry(url, title, body, startPos, endPos, date, lastmod, date2) {
 function excerpt(body, startPos, endPos) {
   return [
     body.substring(startPos - 20, startPos),
-    '<b>', body.substring(startPos, endPos), '</b>',
+    '<b class="bg-yellow-light">', body.substring(startPos, endPos), '</b>',
     body.substring(endPos, endPos + 20)
   ].join('');
 }
