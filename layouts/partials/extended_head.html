@@ -163,6 +163,63 @@ To add an extended head section, please create
   #searchbox {
     position: relative; /* 絶対配置の基準を設定 */
   }
+  #min_avatar{
+    position: relative;
+  }
+  #dropbox:after,#dropbox:before{
+      border: solid transparent;
+      content:'';
+      height:0;
+      width:0;
+      pointer-events:none;
+      position:absolute;
+      bottom:100%;
+      left:84%;
+  }
+  #dropbox:after{
+      border-color: rgba(0, 0, 0, 0);
+      border-top-width:10px;
+      border-bottom-width:10px;
+      border-left-width:11px;
+      border-right-width:11px;
+      margin-left: -11px;
+      border-bottom-color:#FFFFFF;
+  }
+  #dropbox:before{
+      border-color: rgba(0, 0, 0, 0);
+      border-top-width:11px;
+      border-bottom-width:11px;
+      border-left-width:11px;
+      border-right-width:11px;
+      margin-left: -11px;
+      margin-bottom: 1px;
+      border-bottom-color:#d1d5da;
+  }
+  #dropbox{
+    width: 120px;
+    background: #fff;
+    color:#000;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    border-radius: 3px;
+    border: 1px solid #d1d5da;
+    position: absolute;
+    top: 55px;
+    left: -90px;
+    display: block;
+    z-index: 45;
+    padding:10px;
+    text-align:left;
+  }
+  #dropbox {
+    display: none;
+  }
+  #min_avatar{
+    cursor:pointer;
+  }
+  #min_avatar.is-open + #dropbox {
+    display: block;
+    z-index: 4;
+  }
   #dropdown{
     width: 300px;
   }

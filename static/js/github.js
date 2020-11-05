@@ -9,4 +9,7 @@ $(function(){
   	}
     $(this).blur();
   });
+  $('#min_avatar').on('click',function(){
+    $(this).toggleClass("is-open");
+  });
 });

@@ -54,7 +54,10 @@
         </div>
         <div class="Header-item position-relative mr-0 d-none d-lg-flex d-md-flex">
           {{ with $.Site.Params.avatar }}
-          <img alt="" class="avatar" src="{{  $.Site.Params.avatar  }}" height="20" width="20">
+          <img alt="" id="min_avatar" class="avatar" src="{{  $.Site.Params.avatar  }}" height="20" width="20">
+          <div id="dropbox">
+            <p>こんな所まで<br>ありがとう<br>4月11日生まれだよ。</p>
+          </div>
           {{ else }}
           <img alt="" class="avatar" src="{{ "images/avatar.png" | absURL }}" height="20" width="20">
           {{ end }}
