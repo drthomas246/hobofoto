@@ -1,3 +1,4 @@
+add_flg = false;
 $(function(){
   $("#searchbox").keypress(function(e){
     if(e.which == 13){
@@ -5,8 +6,28 @@ $(function(){
       var result = searchData(query);
       var html = createHtml(result);
       showResult(html, result.length);
+      $('#searchbox').removeClass("is-open");
+      $('#searchbox').blur();
     }
   });
+  $('#dropdown').on('transitionstart',function(){
+    if(add_flg == false){
+      $('#searchbox').addClass("is-open");
+      add_flg = true;
+    }else{
+      $('#searchbox').removeClass("is-open");
+      add_flg = false;
+    }
+  });
+  $('#searchbox')
+    .focusin(function(e) { 
+      $(this).addClass("jump-to-field-active");
+      $(this).addClass("jump-to-dropdown-visible");
+    })
+    .focusout(function(e) {
+      $(this).removeClass("jump-to-field-active");
+      $(this).removeClass("jump-to-dropdown-visible");
+    });
 });
 
 function searchData(query) {

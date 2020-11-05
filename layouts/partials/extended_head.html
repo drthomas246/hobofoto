@@ -154,37 +154,52 @@ To add an extended head section, please create
     padding: 16px 0;
     border-bottom: 1px solid #e1e4e8;
   }
-  #searchform{
-  }
-  input#searchbox{
-    color: #fff;
-    background-color: #24292e;
-    border-radius: 5px;
-    border: 1px solid #444d56;
-    padding: 2px;
-    width: 150px;
-  }
-  input#searchbox::placeholder {
-    color: #fff;
-  }
-  input#searchbox::-ms-input-placeholder {
-    color: #fff;
-  }
-  input#searchbox:focus{
-    color: #000;
-    background-color: #fff;
+  button.btn-link{
     outline: none;
+  }
+  #searchbox::placeholder {
+    color: hsla(0,0%,100%,.75);
+  }
+  #searchbox {
+    position: relative; /* 絶対配置の基準を設定 */
+  }
+  #dropdown{
     width: 300px;
   }
-  input#searchbox:focus::placeholder {
-    color: #000;
+  .dropdown__body {
+    width: 470px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    border-radius: 0 0 3px 3px;
+    border: 1px solid #d1d5da;
+    top: 28px;
+    left: 0;
   }
-  input#searchbox{
-    transition:ease-out 0.2s;
+  .dropdown__body {
+    display: none;
   }
-  @media(max-width:768px) {
-      input#searchbox{
-          display: none;
-      }
+  #searchbox.is-open+.dropdown__body {
+    display: block;
+    z-index: 35;
   }
+  .navigation-item:hover {
+    background: #0366d6;
+  }
+  .navigation-item:hover a {
+    color: #fff;
+  }
+  .navigation-item:hover svg {
+    color: #fff!important;
+  }
+@media (min-width:768px) {
+ .p-responsive {
+    padding-right:16px!important;
+    padding-left:16px!important
+   }
+  }
+@media (min-width:768px) {
+  .page-responsive .Header.Details .Header-item.Details-content--hidden {
+    display:flex!important
+  }
+}
 </style>
