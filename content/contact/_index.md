@@ -10,4 +10,3 @@ foto: true
 ## 連絡先
 - [掲示板]({{<ref "/contact/bbs.md">}})
 - [問い合わせフォーム]({{<ref "/contact/form.md">}})
-- [検索]({{<ref "/search.md">}})
