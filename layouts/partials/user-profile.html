@@ -6,13 +6,13 @@
         <div class="float-left col-3 col-md-12 pr-3 pr-md-0">
             {{ with $.Site.Params.avatar }}
                 <img id= "avatar" alt="" width="260" height="260"
-                    class="avatar width-full height-full rounded-2" src="{{ $.Site.Params.avatar  }}" />
+                    class="avatar width-full height-full avatar-user" src="{{ $.Site.Params.avatar  }}" />
             {{ else }}
             <a itemprop="image" class="u-photo d-block position-relative" aria-hidden="true"
                 href="{{ "images/avatar.png" | absURL }}">
 
                 <img alt="" width="260" height="260"
-                    class="avatar width-full height-full rounded-2" src="{{ "images/avatar.png" | absURL }}" />
+                    class="avatar width-full height-full avatar-user" src="{{ "images/avatar.png" | absURL }}" />
             </a>
            {{ end }}
         </div>

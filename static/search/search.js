@@ -1,5 +1,9 @@
-var lunrIndex, results, pagesIndex;
-add_flg = false;
+var lunrIndex, pagesIndex, check_over;
+$('#searchbox').ahPlaceholder({
+  placeholderColor: '#fff',
+  placeholderAttr: 'data-placeholder',
+  likeApple: true
+});
 $(function(){
   $("#searchbox").keypress(function(e){
     if(e.which == 13){
@@ -7,26 +11,46 @@ $(function(){
       search(query);
       $('#searchbox').removeClass("is-open");
       $('#searchbox').blur();
+      head = $(".UnderlineNav");
+      head.before('<div id="navDmy" style="display:none;"></div>');
     }
   });
-  $('#dropdown').on('transitionstart',function(){
-    if(add_flg == false){
-      $('#searchbox').addClass("is-open");
-      add_flg = true;
-    }else{
-      $('#searchbox').removeClass("is-open");
-      add_flg = false;
-    }
+  $('.dropdown__body')
+  .mouseover(function(e){
+    check_over = false;
+  })
+  .mouseout(function(e){
+    check_over = true;
   });
   $('#searchbox')
-    .focusin(function(e) { 
-      $(this).addClass("jump-to-field-active");
-      $(this).addClass("jump-to-dropdown-visible");
-    })
-    .focusout(function(e) {
-      $(this).removeClass("jump-to-field-active");
-      $(this).removeClass("jump-to-dropdown-visible");
+  .focusin(function(e){
+    $('#dropdown').animate({width: "470px"},{
+      duration:200,
+      queue:false,
+      complete:function(){
+        $('#dropdown').addClass("is-open");
+        $('.dropdown__body').css({width: "470px"});
+        $('#searchbox').addClass("jump-to-dropdown-visible");
+      }
     });
+    $('#searchbox').addClass("jump-to-field-active");
+    check_over = true;
+
+  })
+  .focusout(function(e){
+    if(check_over){
+      $('.dropdown__body').animate({width: "300px"},{duration:200,queue:false});
+      $('#dropdown').animate({width: "300px"},{
+        duration:200,
+        queue:false,
+        complete:function(){
+          $('#dropdown').removeClass("is-open");
+          $('#searchbox').removeClass("jump-to-field-active");
+          $('#searchbox').removeClass("jump-to-dropdown-visible");
+        }
+      });
+    }
+  });
 });
 
 function initLunr() {
@@ -65,7 +89,7 @@ function search(query){
     });
     seachbuf = seachbuf + ' +' + searchTerm.join(' ');
   })
-  results = lunrIndex.search(seachbuf);
+  var results = lunrIndex.search(seachbuf);
   results = results.filter(result => result.score >= 1);
   results.map(function(result) {
     buf = pagesIndex.filter(function(page) {
@@ -112,5 +136,3 @@ function showResult(html, count, query) {
     $(".posts-post").mark(val, options);
   })
 }
-
-initLunr();

@@ -13,6 +13,9 @@
                                 <img src="{{ "images/avatar.png" | absURL }}" width="26" height="26">
                                 {{ end }}
                             </a>
+                            <a href="{{ absURL "/" }}">
+                            Home
+                            </a>
                             <span class="author"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span>
                             {{ if ne .Parent.Section ""}}
                             <span class="path-divider">/</span>

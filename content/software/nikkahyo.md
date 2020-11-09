@@ -20,7 +20,7 @@ foto: false
 - ファイル名：nikkahyo.exe
 - 著作者：山原 喜寛 (Yamahara Yoshihiro)
 - 著作年：2017-{{<this_year>}}
-- HP：https://www.hobofoto.net/
+- HP：https://www.hobofoto.work/
 - E-mail：yoshihiro@yamahara.email
 - ライセンス：フリーソフト
 
