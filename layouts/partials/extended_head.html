@@ -3,7 +3,7 @@ To add an extended head section, please create
 `layouts/partials/extended_head.html` in your Hugo directory.
 -->
 {{ if or (.IsHome) (.Params.math) }}
-<link rel="stylesheet" href="/katex/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ "katex/katex.min.css" | absURL }}" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 {{ end }}
 {{ with .Params.math }}
 <style type="text/css">
@@ -83,7 +83,7 @@ To add an extended head section, please create
 </style>
 {{ end }}
 {{ with .Params.foto }}
-<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" type="text/css" href="{{ "fancybox/jquery.fancybox.min.css" | absURL }}">
 <style type="text/css">
 <!--
   figure {

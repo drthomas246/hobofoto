@@ -1,15 +1,14 @@
-var lunrIndex, pagesIndex, check_over;
+var lunrIndex, pagesIndex, check_over, check_search;
 $('#searchbox').ahPlaceholder({
-  placeholderColor: '#fff',
   placeholderAttr: 'data-placeholder',
   likeApple: true
 });
 $(function(){
   $("#searchbox").keypress(function(e){
     if(e.which == 13){
+      check_search = true;
       var query = $('#searchbox').val();
       search(query);
-      $('#searchbox').removeClass("is-open");
       $('#searchbox').blur();
       head = $(".UnderlineNav");
       head.before('<div id="navDmy" style="display:none;"></div>');
@@ -35,10 +34,16 @@ $(function(){
     });
     $('#searchbox').addClass("jump-to-field-active");
     check_over = true;
+    check_search = false;
 
   })
   .focusout(function(e){
-    if(check_over){
+    if(check_search){
+      $('#dropdown').animate({width: "300px"},{duration:200,queue:true});
+      $('#dropdown').removeClass("is-open");
+      $('#searchbox').removeClass("jump-to-field-active");
+      $('#searchbox').removeClass("jump-to-dropdown-visible");
+    }else if(check_over){
       $('.dropdown__body').animate({width: "300px"},{duration:200,queue:false});
       $('#dropdown').animate({width: "300px"},{
         duration:200,
