@@ -3,7 +3,6 @@ title: "日課表作成システム"
 date: 2020-10-16T18:57:14+09:00
 draft: false
 math: false
-foto: false
 ---
 ## 日課表作成システム
 

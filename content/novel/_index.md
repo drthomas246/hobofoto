@@ -2,7 +2,6 @@
 title: "小説"
 date: 2020-10-15T16:08:58+09:00
 draft: false
-search: true
 layout: "about"
 ---
 
@@ -10,11 +9,13 @@ layout: "about"
 小説を書いてみました。
 まだまだ途中ですが。ぼちぼち書き進めていこうとおもいます。
 
+小説家になろうより  
+{{<exlink href="https://ncode.syosetu.com/n0962fo/" text="Last Quest　風を求むもの">}}
+
 ### あらすじ
 
 天界と地界そしてその狭間にある地上界。物語はこの地上界にすむ記憶を失った少年リュクを中心に始まっていく。リュクの過去とは、その過去に関わる天界と地界の争いとは、そしてリュクの将来は。２０００年にも及ぶ世界を描いた異世界ファンタジーここに現る。
 
-良かったら読んでみて下さい。
+### 百科事典
 
-小説家になろうより  
-{{<exlink href="https://ncode.syosetu.com/n0962fo/" text="Last Quest　風を求むもの">}}
+[百科事典]({{<ref "/novel/encyclopedia/_index.md">}})を作りました。どうぞ。

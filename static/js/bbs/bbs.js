@@ -1,20 +1,79 @@
+  window.onload = onloads();
+  $('#bbs').validate({
+    rules: {
+      name: {
+        required: true
+      },
+      mail: {
+        email: true
+      },
+      text: {
+        required: true
+      }
+    },
+    messages: {
+      name: {
+        required: "何か入力してください。"
+      },
+      mail: {
+        email: "正しいメールアドレスを入力してください。"
+      },
+      text: {
+        required: "メッセージをどうぞ。"
+      }
+    },
+    errorClass:"error"
+  });
+  $("#text").autosize();
+  $("#mail").emailautocomplete({
+    domains: [
+      'yahoo.co.jp',
+      'gmail.com',
+      'ezweb.ne.jp',
+      'au.com',
+      'docomo.ne.jp',
+      'i.softbank.jp',
+      'softbank.ne.jp',
+      'excite.co.jp',
+      'googlemail.com',
+      'hotmail.co.jp',
+      'hotmail.com',
+      'icloud.com',
+      'live.jp',
+      'me.com',
+      'mineo.jp',
+      'nifty.com',
+      'outlook.com',
+      'outlook.jp',
+      'yahoo.ne.jp',
+      'ybb.ne.jp',
+      'ymobile.ne.jp'
+    ]
+  });
+
+
 function sends(){
-    if ($('#bbs')[0].reportValidity()){
-        var param = new FormData($('#bbs')[0]);
-        alert(param);
-        $.ajax({
-            type: "POST",
-            url: "https://www.hobofoto.net/cgi-bin/cgi/bbs/php/bbs.php",
-            data: param,
-            dataType : "json",
-            scriptCharset: 'utf-8'
-        }).done(function(bbs){
-            $("#text").val('');
-            prints(1, bbs.bbs, false);
-        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
-            alert('正しい結果を得られませんでした。');
-        });
+    if(!($('#bbs').valid())){
+        return;
     }
+    var param = {
+      "parameter": "send",
+      "name": $("#name").val(),
+      "mail": $("#mail").val(),
+      "text": $("#text").val()
+    };
+    $.ajax({
+        type: "POST",
+        url: "https://www.hobofoto.net/cgi-bin/cgi/bbs/php/bbs.php",
+        data: param,
+        dataType : "json",
+        scriptCharset: 'utf-8'
+    }).done(function(bbs){
+        $("#text").val('');
+        prints(1, bbs.bbs, false);
+    }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+        alert('正しい結果を得られませんでした。');
+    });
 }
 
 function onloads(page = 1, buttonClick = false){

@@ -1,25 +1,29 @@
-<script src="{{ "jquery/jquery-3.5.1.min.js" | absURL }}"></script>
-<script src="{{ "js/github.js" | absURL }}"></script>
-{{ if .IsHome }}
-<script src="{{ "js/stop.js" | absURL }}"></script>
-<script src="{{ "js/contributions.js" | absURL }}"></script>
-<script src="{{ "js/list.js" | absURL }}"></script>
+<script src='{{ "js/jquery/jquery-3.5.1.min.js" | absURL }}'></script>
+<script src='{{ "js/github.js" | absURL }}'></script>
+<script src='{{ "js/time.js" | absURL }}'></script>
+{{ if or (.IsHome) (.IsSection) }}
+<script src='{{ "js/folding.js" | absURL }}'></script>
 {{ end }}
-<script src="{{ "base.js" | absURL }}"></script>
-<script src="{{ "lunr/lunr.min.js" | absURL }}"></script>
-<script src="{{ "lunr/lunr.stemmer.support.min.js" | absURL }}"></script>
-<script src="{{ "lunr/tinyseg.min.js" | absURL }}"></script>
-<script src="{{ "lunr/lunr.ja.min.js" | absURL }}"></script>
-<script src="{{ "mark/jquery.mark.min.js" | absURL }}"></script>
-<script src="{{ "js/jquery.ah-placeholder.js" | absURL }}"></script>
-<script src="{{ "search/search.js" | absURL }}"></script>
+{{ if .IsHome }}
+<script src='{{ "js/stop.js" | absURL }}'></script>
+<script src='{{ "js/contributions.js" | absURL }}'></script>
+<script src='{{ "js/list.js" | absURL }}'></script>
+{{ end }}
+<script src='{{ "base.js" | absURL }}'></script>
+<script src='{{ "js/lunr/lunr.min.js" | absURL }}'></script>
+<script src='{{ "js/lunr/lunr.stemmer.support.min.js" | absURL }}'></script>
+<script src='{{ "js/lunr/tinyseg.min.js" | absURL }}'></script>
+<script src='{{ "js/lunr/lunr.ja.min.js" | absURL }}'></script>
+<script src='{{ "js/mark/jquery.mark.min.js" | absURL }}'></script>
+<script src='{{ "js/placeholder/jquery.ah-placeholder.js" | absURL }}'></script>
+<script src='{{ "js/search/search.js" | absURL }}'></script>
 <script>
   var json="{{ "index.json" | absURL }}";
   initLunr();
 </script>
 {{ if or (.IsHome) (.Params.math) }}
-<script defer src="{{ "katex/katex.min.js" | absURL }}" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-<script defer src="/katex/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script defer src='{{ "katex/katex.min.js" | absURL }}' integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src='{{ "katex/contrib/auto-render.min.js" | absURL }}' integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   renderMathInElement(
@@ -36,15 +40,156 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 {{ end }}
-{{ with .Params.foto }}
-<script src="{{ "fancybox/jquery.fancybox.min.js" | absURL }}"></script>
+{{ if or (.HasShortcode "fancybox") (.HasShortcode "vimeo") }}
+<script src='{{ "fancybox/jquery.fancybox.min.js" | absURL }}'></script>
 <script>
   $('[data-fancybox]').fancybox();
 </script>
 {{ end }}
 {{ if eq .File.LogicalName "bbs.md"}}
-<script src="{{ "bbs/bbs.js" | absURL }}"></script>
+<script src='{{ "js/email-autocomplete/jquery.email-autocomplete.min.js" | absURL }}'></script>
+<script src='{{ "js/validate/jquery.validate.min.js" | absURL }}'></script>
+<script src='{{ "js/autosize/jquery.autosize.min.js" | absURL }}'></script>
+<script src='{{ "js/bbs/bbs.js" | absURL }}'></script>
+{{ end }}
+{{ if eq .File.LogicalName "form.md"}}
+<script src='{{ "js/email-autocomplete/jquery.email-autocomplete.min.js" | absURL }}'></script>
+<script src='{{ "js/validate/jquery.validate.min.js" | absURL }}'></script>
+<script src='{{ "js/autosize/jquery.autosize.min.js" | absURL }}'></script>
 <script>
-  window.onload = onloads();
+  $('#contact').validate({
+    rules: {
+      name: {
+        required: true
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      message: {
+        required: true
+      }
+    },
+    messages: {
+      name: {
+        required: "お名前を入力ください。"
+      },
+      email: {
+        required: "メールアドレスを入力してください。",
+        email: "正しいメールアドレスを入力してください。"
+      },
+      message: {
+        required: "ご質問を書いてください。"
+      }
+    },
+    errorClass:"error"
+  });
+  $("#text").autosize();
+  $("#mail").emailautocomplete({
+    domains: [
+      'yahoo.co.jp',
+      'gmail.com',
+      'ezweb.ne.jp',
+      'au.com',
+      'docomo.ne.jp',
+      'i.softbank.jp',
+      'softbank.ne.jp',
+      'excite.co.jp',
+      'googlemail.com',
+      'hotmail.co.jp',
+      'hotmail.com',
+      'icloud.com',
+      'live.jp',
+      'me.com',
+      'mineo.jp',
+      'nifty.com',
+      'outlook.com',
+      'outlook.jp',
+      'yahoo.ne.jp',
+      'ybb.ne.jp',
+      'ymobile.ne.jp'
+    ]
+  });
+</script>
+{{ end }}
+{{ if eq .Kind "404"}}
+<script>
+  var json="{{ "index.json" | absURL }}";
+  initLunr();
+</script>
+<script>
+
+function window_resize(){
+  var window_width = $(window).width();
+  var window_height = window_width/3;
+  $('iframe').css({
+    width: window_width,
+    height: window_height
+  });
+}
+
+$(window).resize(function(){
+  window_resize();
+});
+
+window_resize();
+ var parallaxGyro = function () {
+    var src = $("iframe").attr("src");
+    $("iframe").attr("src","");
+    $("iframe").attr("src",src);
+  }
+ 
+// ジャイロセンサーの有無確認
+  var isGyro = false;
+  if ((window.DeviceOrientationEvent) && ('ontouchstart' in window)) {
+    isGyro = true;
+  }
+ 
+//PCなど非ジャイロの場合
+  if (!isGyro) {
+    parallaxGyro();
+//ジャイロ持ちデバイス
+  } else {
+    //ジャイロ動作確認
+    var resGyro = false;
+    window.addEventListener("deviceorientation", doGyro, false);
+ 
+    function doGyro() {
+      resGyro = true;
+      window.removeEventListener("deviceorientation", doGyro, false);
+    }
+ 
+    setTimeout(function () {
+      //ジャイロが動作する場合
+      if (resGyro) {
+        parallaxGyro();
+      //ジャイロが動作しない場合
+      } else {
+        //iOS13以上ならクリックイベントを要求
+        if (typeof DeviceOrientationEvent.requestPermission === "function") {
+          //ユーザアクションを得るための要素を表示
+          $('#request').show();
+          $('#request_button').on("click", function () {
+            $('#request').hide();
+            DeviceOrientationEvent.requestPermission().then(res => {
+              //「動作と方向」が許可された
+              if (res === "granted") {
+                parallaxGyro();
+                //「動作と方向」が許可されなかった
+              } else {
+                isGyro = false;
+                parallaxGyro();
+              }
+            });
+          });
+          //iOS13以上ではない場合
+          } else {
+            isGyro = false;
+            parallaxGyro();
+          }
+      }
+    }, 300);
+  }
+
 </script>
 {{ end }}

@@ -2,7 +2,7 @@
 title: "負の数"
 date: 2020-10-10T22:19:46+09:00
 draft: false
-math: ture
+math: true
 ---
 {{<balloon-left>}}今回から中学校の数学について考えていこうと思う。{{</balloon-left>}}
 {{<balloon-right>}}唐突ですね。でも中学校の数学は小学校と違って難しいのではないですか？{{</balloon-right>}}

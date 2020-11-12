@@ -2,7 +2,6 @@
 title: "中学数学"
 date: 2020-10-10T22:02:10+09:00
 draft: false
-search: true
 layout: "about"
 ---
 

@@ -3,7 +3,6 @@ title: "正負の減法"
 date: 2020-10-11T12:29:07+09:00
 draft: false
 math: true
-foto: true
 ---
 
 {{<balloon-left>}}前回は足し算について考えたの。{{</balloon-left>}}

@@ -3,7 +3,6 @@ title: "正負の加法"
 date: 2020-10-11T11:52:50+09:00
 draft: false
 math: true
-foto: true
 ---
 
 {{<balloon-left>}}今回は足し算についてやってみようと思う。{{</balloon-left>}}

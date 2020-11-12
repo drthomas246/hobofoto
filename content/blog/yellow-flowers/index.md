@@ -3,7 +3,6 @@ title: "黄色い花達"
 date: 2016-05-08T23:23:07+09:00
 draft: false
 math: false
-foto: True
 ---
 
 近所に新しくできた公園で見つけました。

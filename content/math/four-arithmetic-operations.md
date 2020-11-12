@@ -3,7 +3,6 @@ title: "四則演算"
 date: 2020-11-03T21:08:04+09:00
 draft: false
 math: true
-foto: false
 ---
 
 {{<balloon-right>}}やっとこれで、すべての計算ができるようになりましたね。{{</balloon-right>}}

@@ -9,10 +9,10 @@
                     class="avatar width-full height-full avatar-user" src="{{ $.Site.Params.avatar  }}" />
             {{ else }}
             <a itemprop="image" class="u-photo d-block position-relative" aria-hidden="true"
-                href="{{ "images/avatar.png" | absURL }}">
+                href='{{ "images/avatar.png" | absURL }}'>
 
                 <img alt="" width="260" height="260"
-                    class="avatar width-full height-full avatar-user" src="{{ "images/avatar.png" | absURL }}" />
+                    class="avatar width-full height-full avatar-user" src='{{ "images/avatar.png" | absURL }}' />
             </a>
            {{ end }}
         </div>
@@ -96,30 +96,30 @@
                 {{ if .Site.Params.misskey}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="{{ .Site.Params.misskey }}">
-                    <img src="{{ "images/misskey.png" | absURL }}" class="avatar" width="35" height="35">
+                    <img src='{{ "images/misskey.png" | absURL }}' class="avatar" width="35" height="35">
                 </a>
                 {{ end }}
                 {{ if .Site.Params.mastodon}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="{{ .Site.Params.mastodon }}">
-                    <img src="{{ "images/mastodon.png" | absURL }}" class="avatar" width="35" height="35">
+                    <img src='{{ "images/mastodon.png" | absURL }}' class="avatar" width="35" height="35">
                 </a>
                 {{ end }}
                 {{ if .Site.Params.facebook}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="https://facebook.com/{{ .Site.Params.facebook }}">
-                    <img src="{{ "images/facebook.png" | absURL }}" class="avatar" width="35" height="35">
+                    <img src='{{ "images/facebook.png" | absURL }}' class="avatar" width="35" height="35">
                 </a>
                 {{ end }}
                 {{ if .Site.Params.Twitter}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="https://twitter.com/{{ .Site.Params.Twitter }}">
-                    <img src="{{ "images/twitter.png" | absURL }}" class="avatar" width="35" height="35">
+                    <img src='{{ "images/twitter.png" | absURL }}' class="avatar" width="35" height="35">
                 </a>
                 {{ end }}
                 <a class="avatar-group-item" data-hovercard-type="organization"
-                                             href="{{ "index.xml" | absURL }}">
-                    <img src="{{ "images/rss.png" | absURL }}" class="avatar" width="38" height="38">
+                                             href='{{ "index.xml" | absURL }}'>
+                    <img src='{{ "images/rss.png" | absURL }}' class="avatar" width="38" height="38">
                 </a>
             </div>
 

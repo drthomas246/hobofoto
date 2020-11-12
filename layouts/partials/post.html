@@ -1,3 +1,22 @@
+{{- define "breadcrumb" }}
+  {{- if .node.Parent }}
+    {{- template "breadcrumb" (dict "node" .node.Parent "start" .start) }}
+  {{- else if not .node.IsHome }}
+    {{- template "breadcrumb" (dict "node" .node.Site.Home "start" .start) }}
+  {{- end }}
+
+  {{- if eq .node .start }}
+    <span class="path-divider">/</span>
+    <strong itemprop="name" class="css-truncate-target" style="max-width: 410px">{{ .node.Title }}</strong>
+  {{- else }}
+    {{- if .node.IsHome }}
+    <a href='{{ absURL "/" }}'>Home</a>
+    {{- else }}
+    <span class="path-divider">/</span>
+    <a href="{{ .node.Permalink }}">{{ .node.Title }}</a>
+    {{- end }}
+  {{- end }}
+{{- end }}
 <div class="application-main " data-commit-hovercards-enabled="">
     <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
         <main>
@@ -5,31 +24,22 @@
                 <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
                     <div class="mb-3 d-flex">
                         <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
-                            <a class="avatar mr-1" href="{{ absURL "/" }}">
+                            <a class="avatar mr-1" href='{{ absURL "/" }}'>
                                 {{ with $.Site.Params.avatar }}
                                 <img src="{{  $.Site.Params.avatar  }}" width="26" height="26">
                                 {{ else }}
-                                <img src="{{ "images/avatar.png" | absURL }}" width="26" height="26">
+                                <img src='{{ "images/avatar.png" | absURL }}' width="26" height="26">
                                 {{ end }}
                             </a>
-                            <a href="{{ absURL "/" }}">
-                            Home
-                            </a>
-                            <span class="author"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span>
-                            {{ if ne .Section ""}}
-                            <span class="path-divider">/</span>
-                            <a href="{{ .Site.BaseURL }}{{ .Parent.Section }}">{{ .CurrentSection.Title }}</a>
-                            {{ end }}
-                            <span class="path-divider">/</span>
-                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px">{{ .Title }}</strong>
+                            {{- template "breadcrumb" (dict "node" . "start" .) }}
 
                             <div class="d-block text-small text-gray">
-                                Created <time-ago datetime="{{ .Date.Format "2006-01-02" }}" class="no-wrap"
-                                    title="Created at {{ .PublishDate.Format "2006/01/02" }}">
+                                Created <time-ago datetime='{{ .Date.Format "2006-01-02" }}' class="no-wrap"
+                                    title='Created at {{ .PublishDate.Format "2006/01/02" }}'>
                                     {{ .PublishDate.Format "2006-01-02" }}</time-ago>
                                 <span class="file-info-divider"></span>
-                                Modified <time-ago datetime="{{ .Lastmod.Format "2006-01-02" }}" class="no-wrap"
-                                    title="Modified  at {{ .Lastmod.Format "2006/01/02" }}">
+                                Modified <time-ago datetime='{{ .Lastmod.Format "2006-01-02" }}' class="no-wrap"
+                                    title='Modified  at {{ .Lastmod.Format "2006/01/02" }}'>
                                     {{ .Lastmod.Format "2006-01-02" }}</time-ago>
                             </div>
                         </h1>

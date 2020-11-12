@@ -3,7 +3,6 @@ title: "Novel Editor"
 date: 2020-10-16T12:30:33+09:00
 draft: false
 math: false
-foto: false
 ---
 
 ## Novel Editor

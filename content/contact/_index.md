@@ -2,9 +2,7 @@
 title: "連絡先"
 date: 2020-10-12T13:23:25+09:00
 draft: false
-search: true
 layout: "about"
-foto: true
 ---
 
 ## 連絡先

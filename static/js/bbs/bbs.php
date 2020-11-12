@@ -6,9 +6,9 @@ if ($parameter == 'get'){
 	print_html($dat);
 }
 if ($parameter == 'send'){
-	$name = (string)filter_input(INPUT_POST, 'name');
+	$name = (string)filter_input(INPUT_POST, 'name',FILTER_SANITIZE_STRING);
 	$mail = (string)filter_input(INPUT_POST, 'mail');
-	$text = (string)filter_input(INPUT_POST, 'text');
+	$text = (string)filter_input(INPUT_POST, 'text',FILTER_SANITIZE_STRING);
 	$w = date("w");
 	$week_name = array("日", "月", "火", "水", "木", "金", "土");
 
