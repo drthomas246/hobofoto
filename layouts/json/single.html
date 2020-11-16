@@ -1,5 +1,7 @@
 {{- $.Scratch.Add "index" slice -}}
-{{- range .Site.Pages -}}
+{{- $mainSections := slice "blog" "math" "novel" "software" "about" -}}
+{{- $section := where .Site.Pages "Section" "in" $mainSections -}}
+{{- range $section -}}
     {{- $.Scratch.Add "index" (dict "title" .Title "lastmod" (.Lastmod.Format "2006/01/02") "date" (.PublishDate.Format "2006/01/02 15:04:05") "contents" .Plain "href" .URL ) -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}
