@@ -9,10 +9,3 @@ if(document.getElementsByClassName("btn-link")){
     }
   });
 }
-
-var min_avatar = document.getElementById('min_avatar');
-if(min_avatar){
-  min_avatar.addEventListener('click', function() {
-    min_avatar.classList.toggle('is-open');
-  }, false);
-}

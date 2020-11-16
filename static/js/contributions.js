@@ -1,7 +1,6 @@
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const now = new Date();
 let contributions;
-
 (() => {
   const dom = document.querySelector('#contributions');
   if (!dom) {
@@ -84,7 +83,7 @@ function monthly(year, month, posts) {
   }
   let html = `
   <div class="contribution-activity-listing float-left col-12 col-lg-10">
-    <div class="profile-timeline discussion-timeline width-full pb-4">
+    <div id="profile-timeline" class="profile-timeline discussion-timeline width-full pb-4">
       <h3 class="profile-timeline-month-heading bg-white d-inline-block h6 pr-2 py-1">
         ${months[month]} <span class="text-gray">${monthPosts.length > 0 ? monthPosts[0].date.getFullYear() : year}</span>
       </h3>

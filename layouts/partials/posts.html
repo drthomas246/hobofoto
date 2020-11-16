@@ -6,11 +6,10 @@
 {{ $section_count_math := len $section_math }}
 {{ $n_posts := $.Param "recent_posts_number" | default 6 }}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
-    <div class="UnderlineNav width-full user-profile-nav top-0 is-placeholder"
-        style="visibility: hidden; display: none; height: 56px;"></div>
-    <div class="UnderlineNav width-full user-profile-nav js-sticky top-0"
+    <div id="navDmy" style="display:none;"></div>
+    <div id="UnderlineNav" class="UnderlineNav width-full user-profile-nav js-sticky top-0"
         style="position: static; top: 0px; left: 330.5px; width: 911.5px;">
-        <nav class="UnderlineNav-body" aria-label="User profile">
+        <nav id="UnderlineNav-body" class="UnderlineNav-body" aria-label="User profile">
             <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="{{ .Site.BaseURL }}"><svg class="octicon octicon-book UnderlineNav-octicon hide-lg hide-sm" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z" /><</svg>
                 Overview
             </a>
@@ -49,11 +48,7 @@
     <div class="position-relative">
         <div id="user-repositories-list">
             <ul data-filterable-for="your-repos-filter" data-filterable-type="substring">
-                {{ $paginaton := 10 }}
-                {{ if .Site.Params.paginaton }}
-                    {{ $paginaton = .Site.Params.paginaton }}
-                {{ end }}
-                {{ range (.Paginator $paginaton).Pages }}
+                {{ range .Paginator.Pages }}
                 <li class="col-12 d-flex width-full py-4 border-bottom public fork">
                     <div class="col-12 col-lg-12 d-inline-block">
                         <div class="d-inline-block mb-1">

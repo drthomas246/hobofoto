@@ -1,0 +1,5 @@
+{{ $mainSections := slice "math"}}
+{{ $section := where .Site.Pages  ".File.LogicalName" (.Get 0) }}
+{{ range $section }}
+<a href="{{ .Permalink }}">{{.Title}}</a><span class="ml-3 f6 text-gray mt-2">Updated <relative-time datetime='{{ .PublishDate.Format "2006/01/02 15:04:05" }}' class="no-wrap" title='Modify at {{ .Lastmod.Format "2006/01/02" }}'></relative-time></span>
+{{ end }}

@@ -1,5 +1,5 @@
 {{- $.Scratch.Add "index" slice -}}
-{{- range .Site.RegularPages -}}
-    {{- $.Scratch.Add "index" (dict "title" (or .Title ) "lastmod" (.Lastmod.Format "2006/01/02") "date" (.PublishDate.Format "2006-01-02") "contents" .Plain "href" .URL "date2" (.PublishDate.Format "January 2, 2006") ) -}}
+{{- range .Site.Pages -}}
+    {{- $.Scratch.Add "index" (dict "title" .Title "lastmod" (.Lastmod.Format "2006/01/02") "date" (.PublishDate.Format "2006/01/02 15:04:05") "contents" .Plain "href" .URL ) -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}

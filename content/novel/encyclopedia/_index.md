@@ -9,4 +9,6 @@ layout: "about"
 
 ## 百科事典
 
-- [ジョブ]({{<ref "/novel/encyclopedia/job.md">}})
+- {{<title "job.md">}}
+- {{<title "god_devil_war.md">}}
+- {{<title "time_series.md">}}

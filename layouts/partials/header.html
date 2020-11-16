@@ -1,5 +1,5 @@
 <div class="position-relative js-header-wrapper ">
-    <div id="header" class="width-full hide-md hide-sm">
+    <div id="header" class="width-full hide-md hide-sm user-profile-nav">
         <div class="user-profile-mini-vcard d-table">
             <span class="user-profile-mini-avatar d-table-cell v-align-middle lh-condensed-ultra pr-2 pl-5">
               <img class="avatar-user" src="{{  $.Site.Params.avatar  }}" height="32" width="32">
@@ -28,7 +28,7 @@
                 <div class="position-relative">
                     <div class="js-site-search-form">
                         <label class="form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center focus">
-                            <input id="searchbox" class="dropdown__btn form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field" data-placeholder="Search or jump to..." box-open="false">
+                            <input id="searchbox" class="dropdown__btn form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field" placeholder="Search or jump to..." box-open="false">
                             <svg version="1.1" id="Layer_1" class="mr-2 header-search-key-slash" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              width="19px" height="20px" viewBox="0 0 19 20" style="enable-background:new 0 0 19 20;" xml:space="preserve">
                             <path fill="none" stroke="#979A9C" opacity="0.4" d="M3.5,0.5h12c1.7,0,3,1.3,3,3v13c0,1.7-1.3,3-3,3h-12c-1.7,0-3-1.3-3-3v-13C0.5,1.8,1.8,0.5,3.5,0.5z"/>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="dropdown__body position-absolute overflow-hidden  js-jump-to-suggestions-container">
+            <div id="dropdown__body" class="dropdown__body position-absolute overflow-hidden  js-jump-to-suggestions-container">
                 <ul class="p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container js-active-navigation-container">
                     <li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item"><a href='{{ absURL "/" }}' class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2"><svg class="octicon octicon-book UnderlineNav-octicon text-gray-light mx-2" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z" /></svg>Overview</a></li>
                     <li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item"><a href='{{ absURL "blog/" }}' class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2"><svg class="octicon octicon-repo UnderlineNav-octicon text-gray-light mx-2" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z" /></svg>Blogs</a></li>
