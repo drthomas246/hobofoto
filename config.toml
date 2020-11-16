@@ -8,23 +8,6 @@ hasCJKLanguage = true
 paginate = 5
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
-[caches]
-[caches.getcsv]
-dir = ":resourceDir/_gen"
-maxAge = -1
-[caches.getjson]
-dir = ":resourceDir/_gen"
-maxAge = -1
-[caches.images]
-dir = ":resourceDir/_gen"
-maxAge = -1
-[caches.assets]
-dir = ":resourceDir/_gen"
-maxAge = -1
-[caches.modules]
-dir = ":resourceDir/_gen"
-maxAge = -1
-
 [params]
   title = "HoBoFoTo"
   name = "Dr?Thomas"
