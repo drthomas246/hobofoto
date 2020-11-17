@@ -2,10 +2,10 @@
     <div id="header" class="width-full hide-md hide-sm user-profile-nav">
         <div class="user-profile-mini-vcard d-table">
             <span class="user-profile-mini-avatar d-table-cell v-align-middle lh-condensed-ultra pr-2 pl-5">
-              <img class="avatar-user" src="{{  $.Site.Params.avatar  }}" height="32" width="32">
+              <img class="avatar-user" src="{{  $.Site.Params.avatar | absURL }}" height="32" width="32">
             </span>
             <span class="d-table-cell v-align-middle lh-condensed">
-              <strong>{{ .Site.Params.name }}</strong>
+              <strong>{{ .Site.Params.author }}</strong>
             </span>
         </div>
     </div>
@@ -64,18 +64,17 @@
             </a>
         </div>
         <div class="Header-item position-relative mr-0 d-none d-lg-flex d-md-flex">
-          {{ with $.Site.Params.avatar }}
-          <img alt="" id="min_avatar" class="avatar" src="{{  $.Site.Params.avatar  }}" height="20" width="20">
+          {{- with $.Site.Params.avatar -}}
+          <img alt="" id="min_avatar" class="avatar" src="{{  $.Site.Params.avatar | absURL }}" height="20" width="20">
           <div id="dropbox">
             <p>こんな所まで<br>ありがとう<br>4月11日生まれだよ。</p>
           </div>
-          {{ else }}
+          {{- else -}}
           <img alt="" class="avatar" src='{{ "images/avatar.png" | absURL }}' height="20" width="20">
-          {{ end }}
+          {{- end -}}
         </div>
     </header>
 </div>
-
 <div id="start-of-content" class="show-on-focus"></div>
 <div id="js-flash-container">
 </div>

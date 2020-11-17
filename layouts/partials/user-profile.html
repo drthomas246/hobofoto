@@ -4,37 +4,35 @@
     </div>
     <div class="clearfix mb-2">
         <div class="float-left col-3 col-md-12 pr-3 pr-md-0">
-            {{ with $.Site.Params.avatar }}
+            {{- with $.Site.Params.avatar -}}
                 <img id= "avatar" alt="" width="260" height="260"
-                    class="avatar width-full height-full avatar-user" src="{{ $.Site.Params.avatar  }}" />
-            {{ else }}
+                    class="avatar width-full height-full avatar-user" src="{{ $.Site.Params.avatar | absURL }}" />
+            {{- else -}}
             <a itemprop="image" class="u-photo d-block position-relative" aria-hidden="true"
                 href='{{ "images/avatar.png" | absURL }}'>
 
                 <img alt="" width="260" height="260"
                     class="avatar width-full height-full avatar-user" src='{{ "images/avatar.png" | absURL }}' />
             </a>
-           {{ end }}
+           {{- end -}}
         </div>
         <div class="float-left col-9 col-md-12 pl-2 pl-md-0">
 
             <div id="vcard-names-container" class="vcard-names-container pt-1 pt-md-3 pb-1 pb-md-3 js-sticky js-user-profile-sticky-fields">
                 <h1 class="vcard-names">
                     <span class="p-name vcard-fullname d-block overflow-hidden"
-                        itemprop="name">{{ .Site.Params.title }}</span>
+                        itemprop="name">{{- .Site.Title -}}</span>
                     <span class="p-nickname vcard-username d-block"
-                        itemprop="additionalName">{{ .Site.Params.name }}</span>
+                        itemprop="additionalName">{{- .Site.Params.author -}}</span>
                 </h1>
             </div>
-
             <div class="d-none d-md-block">
                 <div class="js-profile-editable-area">
                     <div class="p-note user-profile-bio js-user-profile-bio">
-                        <div>{{ .Site.Params.Description }}</div>
+                        <div>{{- .Site.Params.Description -}}</div>
                     </div>
                     <ul class="vcard-details mb-3">
-
-                        {{ if .Site.Params.country }}
+                        {{- if .Site.Params.country -}}
                         <li itemprop="country" aria-label="Country: {{ .Site.Params.country }}"
                             class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-country"
                                 viewBox="0 0 18 16" version="1.1" width="18" height="16" aria-hidden="true">
@@ -42,9 +40,8 @@
                             </svg>
                             {{ .Site.Params.country }}
                         </li>
-                        {{ end }}
-
-                        {{ if .Site.Params.location }}
+                        {{- end -}}
+                        {{- if .Site.Params.location -}}
                         <li itemprop="location" aria-label="Email: {{ .Site.Params.location }}"
                             class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-location"
                                 viewBox="0 0 18 16" version="1.1" width="18" height="16" aria-hidden="true">
@@ -52,37 +49,33 @@
                             </svg>
                             {{ .Site.Params.location }}
                         </li>
-                        {{ end }}
-
-                        {{ if .Site.Params.email }}
+                        {{- end -}}
+                        {{- if .Site.Params.email -}}
                         <li itemprop="email" aria-label="Email: {{ .Site.Params.Email }}"
                             class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-mail"
                                 viewBox="0 0 18 16" version="1.1" width="18" height="16" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M1.75 2A1.75 1.75 0 000 3.75v.736a.75.75 0 000 .027v7.737C0 13.216.784 14 1.75 14h12.5A1.75 1.75 0 0016 12.25v-8.5A1.75 1.75 0 0014.25 2H1.75zM14.5 4.07v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81zm-13 1.74v6.441c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.38 9.397a.75.75 0 01-.76 0L1.5 5.809z" />
                             </svg>
-                            <a class="u-email " href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a>
+                            <a class="u-email " href="mailto:{{ .Site.Params.Email }}">{{- .Site.Params.Email -}}</a>
                         </li>
-                        {{ end }}
-
+                        {{- end -}}
                         <li itemprop="url" data-test-selector="profile-website-url"
                             class="vcard-detail pt-1 css-truncate css-truncate-target"><svg class="octicon octicon-link"
                                 viewBox="0 0 18 16" version="1.1" width="18" height="16" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z" />
                             </svg>
-                            {{ if .Site.Params.url }}
-                            <a rel="nofollow me" href="{{ .Site.Params.url }}">{{ .Site.Params.url }}</a>
-                            {{ else }}
-                            <a rel="nofollow me" href="{{ .Site.BaseURL }}">{{ .Site.BaseURL }}</a>
-                            {{ end }}
+                            {{- if .Site.Params.url -}}
+                            <a rel="nofollow me" href="{{ .Site.Params.url }}">{{- .Site.Params.url -}}</a>
+                            {{- else -}}
+                            <a rel="nofollow me" href="{{ .Site.BaseURL }}">{{- .Site.BaseURL -}}</a>
+                            {{- end -}}
                         </li>
                     </ul>
                 </div>
             </div>
-
             <div class="border-top py-3 clearfix hide-sm hide-md">
                 <h2 class="mb-1 h4">Organizations</h2>
-
-                {{ if .Site.Params.github}}
+                {{- if .Site.Params.github -}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="https://github.com/{{ .Site.Params.github }}">
                     <svg width="35" height="35" class="avatar github-octicon" viewBox="0 0 16 16" version="1.1"
@@ -92,37 +85,36 @@
                         </path>
                     </svg>
                 </a>
-                {{ end }}
-                {{ if .Site.Params.misskey}}
+                {{- end -}}
+                {{- if .Site.Params.misskey -}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="{{ .Site.Params.misskey }}">
                     <img src='{{ "images/misskey.png" | absURL }}' class="avatar" width="35" height="35">
                 </a>
-                {{ end }}
-                {{ if .Site.Params.mastodon}}
+                {{- end -}}
+                {{- if .Site.Params.mastodon -}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="{{ .Site.Params.mastodon }}">
                     <img src='{{ "images/mastodon.png" | absURL }}' class="avatar" width="35" height="35">
                 </a>
-                {{ end }}
-                {{ if .Site.Params.facebook}}
+                {{- end -}}
+                {{- if .Site.Params.facebook -}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="https://facebook.com/{{ .Site.Params.facebook }}">
                     <img src='{{ "images/facebook.png" | absURL }}' class="avatar" width="35" height="35">
                 </a>
-                {{ end }}
-                {{ if .Site.Params.Twitter}}
+                {{- end -}}
+                {{- if .Site.Params.Twitter -}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                     href="https://twitter.com/{{ .Site.Params.Twitter }}">
                     <img src='{{ "images/twitter.png" | absURL }}' class="avatar" width="35" height="35">
                 </a>
-                {{ end }}
+                {{- end -}}
                 <a class="avatar-group-item" data-hovercard-type="organization"
                                              href='{{ "index.xml" | absURL }}'>
                     <img src='{{ "images/rss.png" | absURL }}' class="avatar" width="38" height="38">
                 </a>
             </div>
-
             <div data-test-selector="profile-sponsorships">
             </div>
         </div>

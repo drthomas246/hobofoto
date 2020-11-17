@@ -2,10 +2,10 @@
 To add an extended head section, please create
 `layouts/partials/extended_head.html` in your Hugo directory.
 -->
-{{ if or (.IsHome) (.Params.math) }}
+{{- if or (.IsHome) (.Params.math) -}}
 <link rel="stylesheet" href='{{ "katex/katex.min.css" | absURL }}' integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-{{ end }}
-{{ with .Params.math }}
+{{- end -}}
+{{- with .Params.math -}}
 <style type="text/css">
 <!--
   .line-bc {
@@ -81,8 +81,8 @@ To add an extended head section, please create
 }
 -->
 </style>
-{{ end }}
-{{ if or (.HasShortcode "fancybox") (.HasShortcode "vimeo") }}
+{{- end -}}
+{{- if or (.HasShortcode "fancybox") (.HasShortcode "vimeo") -}}
 <link rel="stylesheet" type="text/css" href='{{ "fancybox/jquery.fancybox.min.css" | absURL }}'>
 <style type="text/css">
 <!--
@@ -103,8 +103,8 @@ To add an extended head section, please create
   }
 -->
 </style>
-{{ end }}
-{{ if eq .File.LogicalName "bbs.md"}}
+{{- end -}}
+{{- if eq .File.LogicalName "bbs.md" -}}
 <style type="text/css">
   .bbs-link button{
     margin: 10px 0;
@@ -156,8 +156,8 @@ To add an extended head section, please create
     color:#f44;
   }
 </style>
-{{ end }}
-{{ if eq .File.LogicalName "form.md"}}
+{{- end -}}
+{{- if eq .File.LogicalName "form.md" -}}
 <style type="text/css">
   .eac-sugg{
     color: #d1d5da;
@@ -172,7 +172,7 @@ To add an extended head section, please create
     color:#f44;
   }
 </style>
-{{ end }}
+{{- end -}}
 <style type="text/css">
   .header-search-wrapper {
     background-color:#24292e !important;

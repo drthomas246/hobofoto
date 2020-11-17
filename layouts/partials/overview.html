@@ -1,14 +1,13 @@
-{{ $mainSections := slice "blog" "math" "novel"}}
-{{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
-{{ $section_count := len $section }}
-{{ $blogSections := slice "blog" }}
-{{ $section_blog := where .Site.RegularPages "Section" "in" $blogSections }}
-{{ $section_count_blog := len $section_blog }}
-{{ $mathSections := slice "math" }}
-{{ $section_math := where .Site.RegularPages "Section" "in" $mathSections }}
-{{ $section_count_math := len $section_math }}
-
-{{ $n_posts := $.Param "recent_posts_number" | default 6 }}
+{{- $mainSections := slice "blog" "math" "novel" -}}
+{{- $section := where .Site.RegularPages "Section" "in" $mainSections -}}
+{{- $section_count := len $section -}}
+{{- $blogSections := slice "blog" -}}
+{{- $section_blog := where .Site.RegularPages "Section" "in" $blogSections -}}
+{{- $section_count_blog := len $section_blog -}}
+{{- $mathSections := slice "math" -}}
+{{- $section_math := where .Site.RegularPages "Section" "in" $mathSections -}}
+{{- $section_count_math := len $section_math -}}
+{{- $n_posts := $.Param "recent_posts_number" | default 6 -}}
 <div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
     <div id="navDmy" style="display:none;"></div>
     <div id="UnderlineNav" class="UnderlineNav width-full user-profile-nav js-sticky top-0">
@@ -19,13 +18,13 @@
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href='{{ absURL "blog/" }}'><svg class="octicon octicon-repo UnderlineNav-octicon hide-lg hide-sm" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z" /></svg>
                 Blogs
                 <span class="Counter hide-lg hide-md hide-sm">
-                    {{ $section_count_blog}}
+                    {{ $section_count_blog }}
                 </span>
             </a>
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href='{{ absURL "math/" }}'><svg class="octicon octicon-repo UnderlineNav-octicon hide-lg hide-sm" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z" /></svg>
                 Math
                 <span class="Counter hide-lg hide-md hide-sm">
-                    {{ $section_count_math}}
+                    {{ $section_count_math }}
                 </span>
             </a>
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href='{{ absURL "novel/" }}'><svg class="octicon octicon-project UnderlineNav-octicon hide-lg hide-sm" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z" /></svg>
@@ -38,7 +37,6 @@
                 Contact
             </a>
             <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href='{{ absURL "about/" }}'><svg class="octicon octicon-package UnderlineNav-octicon hide-lg hide-sm" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.467.133a1.75 1.75 0 011.066 0l5.25 1.68A1.75 1.75 0 0115 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.7 1.7 0 01-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 011.217-1.667l5.25-1.68zm.61 1.429a.25.25 0 00-.153 0l-5.25 1.68a.25.25 0 00-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.2.2 0 00.154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.25.25 0 00-.174-.237l-5.25-1.68zM9 10.5a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.75a.75.75 0 10-1.5 0v3a.75.75 0 001.5 0v-3z" /></svg>
-
                 About
             </a>
         </nav>
@@ -49,9 +47,8 @@
                 <h2 class="f4 mb-2 text-normal">
                     New arrive
                 </h2>
-
                 <ol class="d-flex flex-wrap list-style-none gutter-condensed mb-4 js-pinned-items-reorder-list">
-                    {{ range (first $n_posts $section) }}
+                    {{- range (first $n_posts $section) -}}
                     <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
                         <div
                             class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source  sortable-button-item">
@@ -73,19 +70,19 @@
                             </div>
                         </div>
                     </li>
-                    {{ end }}
+                    {{- end -}}
                 </ol>
             </div>
         </div>
-        {{ $mainSections := slice "blog" "math" "novel" }}
-        {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
-        <div id="contributions" data='[{{ range $index, $elem := $section }}
+        {{- $mainSections := slice "blog" "math" "novel" -}}
+        {{- $section := where .Site.RegularPages "Section" "in" $mainSections -}}
+        <div id="contributions" data='[{{ range $index, $elem := $section -}}
 {
     "title": "{{ .Title }}",
     "link": "{{ .Permalink }}",
-    "publishDate": "{{ .PublishDate.Format "2006-01-02 15:04:05" }}"
+    "publishDate": "{{ .PublishDate.Format "2006/01/02 15:04:05" }}"
 }{{ if ne $index (sub (len $section) 1) }},{{ end }}
-{{ end }}]'>
+{{- end }}]'>
             <div class="mt-4 position-relative">
                 <div class="js-yearly-contributions">
                     <div class="position-relative">
@@ -128,11 +125,9 @@
                             </ul>
                         </div>
                     </div>
-
                     <h2 class="f4 text-normal mb-2">
                         Post activity
                     </h2>
-
                     <div id="posts-activity">
                     </div>
                 </div>

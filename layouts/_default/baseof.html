@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 {{ partial "head.html" . }}
-
 <body class="env-production emoji-size-boost page-responsive page-profile">
-  {{ partial "header" . }}
+  {{ partial "header" . -}}
   <div id="search">
-  {{ block "content" . }}{{ end }}
+  {{- block "content" . -}}{{- end -}}
   </div>
   <!-- ここまで検索 -->
-  {{ partial "footer.html" . }}
+  {{- partial "footer.html" . -}}
 </body>
-
 </html>

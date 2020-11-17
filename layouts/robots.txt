@@ -1,0 +1,9 @@
+User-agent: *
+
+Disallow: /
+{{- $mainSections := slice "blog" "math" "novel" "software" "about" "contact" -}}
+{{- $section := where .Pages "Section" "in" $mainSections -}}
+{{- $section =  where $section ".File.LogicalName" "ne" "success.md" -}}
+{{ range $section }}
+Disallow: {{ .RelPermalink -}}
+{{ end }}
